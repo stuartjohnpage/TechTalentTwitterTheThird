@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-// the controller is the navigation of what the user can do. every thing form login signup and write a comment. This controller is handling the login and the sighup as of right now.
+
+// The controller is the navigator of the various app tasks. It handles everything from logging in, to signing up or writing a comment.
 @Controller
 public class AuthorizationController {
 
