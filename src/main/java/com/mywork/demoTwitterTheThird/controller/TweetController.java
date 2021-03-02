@@ -1,9 +1,5 @@
 package com.mywork.demoTwitterTheThird.controller;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
 import com.mywork.demoTwitterTheThird.model.Tweet;
 import com.mywork.demoTwitterTheThird.model.User;
 import com.mywork.demoTwitterTheThird.service.TweetService;
@@ -15,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class TweetController {
