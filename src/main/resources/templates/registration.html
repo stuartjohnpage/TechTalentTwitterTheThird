@@ -9,9 +9,11 @@
 
 <body>
 <div class="container">
-    <div th:replace="fragments/navbar :: nav"></div>
+    <div th:replace="fragments/navbar :: nav">
+
+    </div>
     <h2>Sign up</h2>
-    <form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off">
+    <form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off" id = signUpForm>
         <div class="form-group">
             <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
                    class="validation-message"></label>
@@ -38,7 +40,18 @@
                     th:text="Submit"></button>
         </div>
     </form>
+    <div th:if="${success}">
+        <!--       I know this isn't best practise but I have no idea how to do this otherwise      -->
+        <script>document.getElementById("signUpForm").style.visibility = "hidden";</script>
+        <form method="get" th:action="@{/login}"><br/>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h3><span class="text-success" th:utext="${success}"></span></h3>
+                <br/>
+                <button class="btn btn-md btn-success btn-block" name="backToLogin" type="backToLogin" value="backToLogin">Login</button>
+            </div>
+        </form>
+    </div>
 </div>
-<script th:replace="fragments/headlink :: bootstrapScript"></script>
+<script th:replace="fragments/styleScripts :: bootstrapScript"></script>
 </body>
 </html>
