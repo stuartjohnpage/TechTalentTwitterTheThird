@@ -6,7 +6,7 @@
         <link th:replace="fragments/headlink :: styling">
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div th:replace="fragments/navbar :: nav"></div>
             <h2>Welcome!</h2>
             <form method="post" th:action="@{/login}"><br/>
@@ -15,19 +15,19 @@
                 <div align="center" th:if="${param.error}">
                     <h4 style="color: red">Login unsuccessful.</h4>
                 </div>
-                <button class="btn btn-md btn-success btn-block" name="Submit" type="Submit" value="Login">Log in</button>
+                <button class="btn btn-md btn-primary btn-block" name="Submit" type="Submit" value="Login">Log in</button>
             </form>
 
             <form method="get" th:action="@{/signup}"><br/>
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
                     <h2>Or if you don't have an account, please register below!</h2>
                     <br/>
-                    <button class="btn btn-md btn-success btn-block" name="signup" type="signup" value="signup">Sign-up</button>
+                    <button class="btn btn-md btn-info btn-block" name="signup" type="signup" value="signup">Sign-up</button>
                 </div>
             </form>
 
         </div>
-        <script th:replace="fragments/headlink :: styling"></script>
+        <script th:replace="fragments/styleScripts :: bootstrapScript"></script>
     </body>
 </html>
 

@@ -26,7 +26,8 @@ public class AuthorizationController {
         return "login";
     }
 
-    // her is the get signup method
+
+    // here is the get signup method
     @GetMapping(value = "/signup")
     public String registration(Model model) {
         User user = new User();
