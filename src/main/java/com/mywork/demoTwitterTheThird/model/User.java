@@ -1,6 +1,7 @@
 package com.mywork.demoTwitterTheThird.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+import com.mywork.demoTwitterTheThird.service.TweetService;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
@@ -27,6 +29,7 @@ import lombok.NoArgsConstructor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import org.springframework.ui.Model;
 
 @Data
 @Builder
@@ -76,5 +79,8 @@ public class User {
 
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
+
+
+
 }
 

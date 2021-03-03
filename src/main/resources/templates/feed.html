@@ -10,8 +10,8 @@
 <div class="container">
     <div th:replace="fragments/navbar :: nav"></div>
     <h2>Tweets</h2>
-    <div th:if="${tweetList.length==0}">
-        <p>No Tweets to display.</p>
+    <div th:if="${#lists.isEmpty(tweetList)}">
+        <h3>No Recent Tweets</h3>
     </div>
     <div th:each="tweet:${tweetList}">
         <h5>@<span th:text="${tweet.user.username}"></span>
