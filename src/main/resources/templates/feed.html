@@ -10,6 +10,9 @@
 <div class="container">
     <div th:replace="fragments/navbar :: nav"></div>
     <h2>Tweets</h2>
+    <div th:if="${tweetList.length==0}">
+        <p>No Tweets to display.</p>
+    </div>
     <div th:each="tweet:${tweetList}">
         <h5>@<span th:text="${tweet.user.username}"></span>
             <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
