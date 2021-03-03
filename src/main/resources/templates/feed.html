@@ -13,11 +13,15 @@
     <div th:if="${#lists.isEmpty(tweetList)}">
         <h3>No Recent Tweets</h3>
     </div>
-    <div th:each="tweet:${tweetList}">
-        <h5>@<span th:text="${tweet.user.username}"></span>
-            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
-        <p th:utext="${tweet.message}"></p>
-    </div>
+    <ul class="list-group">
+        <div th:each="tweet:${tweetList}">
+            <li class="list-group-item">
+            <h5>@<span th:text="${tweet.user.username}"></span>
+                <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
+            <p th:utext="${tweet.message}"></p>
+            </li>
+        </div>
+    </ul>
 </div>
 <script th:replace="fragments/headlink :: bootstrapScript"></script>
 </body>

@@ -36,6 +36,4 @@ public class FollowController {
         userService.save(userToUnfollow);
         return "redirect:" + request.getHeader("Referer");
     }
-
-
 }
