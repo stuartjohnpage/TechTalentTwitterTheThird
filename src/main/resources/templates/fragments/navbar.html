@@ -12,15 +12,18 @@
                         <li class="nav-item"><a class="nav-link" href="/tweets">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/tweets/new">New Tweet</a></li>
                         <li class="nav-item"><a class="nav-link" href="/users"> Tweeters</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/user"> My Profile </a></li>
+                        <li class="nav-link disabled"><a class="nav-link disabled" href=#> My Profile </a></li>
                         <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="../logout">Logout</a></li>
                         <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="../login">Login</a></li>
+                        <li class="nav-item" th:classappend="${filter == 'all' ? 'active' : '' }">
+                            <a class="nav-link" href="/tweets">All Tweets</a></li>
+                        <li class="nav-item" th:classappend="${filter == 'following' ? 'active' : '' }">
+                            <a class="nav-link" href="/tweets?filter=following">Followed Tweets</a></li>
                     </ul>
                 </div>
     </nav>
 </div>
 </div>
-
 </div>
 </body>
 </html>
