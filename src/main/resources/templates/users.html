@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Users</title>
@@ -12,10 +12,13 @@
     <ul class="nav nav-tabs">
         <li role="presentation" th:classappend="${filter == 'all' ? 'active' : '' }">
             <a href="/users">All</a></li>
+        <br/>
         <li role="presentation" th:classappend="${filter == 'followers' ? 'active' : '' }">
             <a href="/users?filter=followers">Followers</a></li>
+        <br/>
         <li role="presentation" th:classappend="${filter == 'following' ? 'active' : '' }">
             <a href="/users?filter=following">Following</a></li>
+        <br/>
     </ul><br/>
 
         <h2>Users</h2>
