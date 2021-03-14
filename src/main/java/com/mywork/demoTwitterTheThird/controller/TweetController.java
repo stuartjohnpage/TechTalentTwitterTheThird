@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TweetController {
@@ -26,6 +23,7 @@ public class TweetController {
 
     @Autowired
     private TweetService tweetService;
+
 
 
     @GetMapping(value = "/tweets/{tag}")
@@ -39,11 +37,12 @@ public class TweetController {
     @GetMapping(value = "/tweets/new")
     public String creatingMethodName(Model model) {
         model.addAttribute("tweet", new Tweet());
+        model.addAttribute("tagsAsString", new String());
         return "newTweet";
     }
 
     @PostMapping(value = "/tweets")
-    public String submitTweetForm(@Valid Tweet tweet, BindingResult bindingResult, Model model) {
+    public String submitTweetForm(@Valid Tweet tweet, BindingResult bindingResult, Model model, String tagsAsString) {
         User user = userService.getLoggedInUser();
         if (!bindingResult.hasErrors()) {
             tweet.setUser(user);
