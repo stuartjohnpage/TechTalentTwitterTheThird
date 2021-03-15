@@ -37,12 +37,11 @@ public class TweetController {
     @GetMapping(value = "/tweets/new")
     public String creatingMethodName(Model model) {
         model.addAttribute("tweet", new Tweet());
-        model.addAttribute("tagsAsString", new String());
         return "newTweet";
     }
 
     @PostMapping(value = "/tweets")
-    public String submitTweetForm(@Valid Tweet tweet, BindingResult bindingResult, Model model, String tagsAsString) {
+    public String submitTweetForm(@Valid Tweet tweet, BindingResult bindingResult, Model model) {
         User user = userService.getLoggedInUser();
         if (!bindingResult.hasErrors()) {
             tweet.setUser(user);
